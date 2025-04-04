@@ -488,6 +488,7 @@ adminLogin();
             xhr.open("POST", "ajax/settings_crud.php", true);
 
             xhr.onload = function () {
+                console.log(this.responseText);
 
                 // var myModal = document.getElementById('general-s')
                 // var modal = bootstrap.Modal.getInstance(myModal) // Returns a Bootstrap modal instance
