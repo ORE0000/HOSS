@@ -23,41 +23,56 @@
             Laudantium quo aut libero cum.</p>
     </div>
 
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 mb-5 px-4">
                 <div class="bg-white rounded shadow p-4">
-                    <iframe class="w-100 rounded mb-4"
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13717.035108355!2d78.3754083!3d30.7392318!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390894ad266d143b%3A0x5d9acda659bb5d93!2sHotel%20Om%20Shiv%20Shankar!5e0!3m2!1sen!2sin!4v1730446839899!5m2!1sen!2sin"
-                        height="320px" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe class="w-100 rounded mb-4" src="<?php echo $contact_r['iframe'] ?>" height="320px"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     <h5>Address</h5>
-                    <a href="https://maps.app.goo.gl/fH8hF2QMmJCdQ4rHA" target="_blank"
+                    <a href="<?php echo $contact_r['gmap'] ?>" target="_blank"
                         class="d-inline-block text-decoration-none text-dark mb-2">
                         <i class="bi bi-geo-alt-fill"></i>
-                        HOTEL OM SHIV SHANKAR Matli , Uttarkashi , Uttarakhand (249193)
+                        <?php echo $contact_r['address'] ?>
                     </a>
                     <h5 class="mt-4">Call Us</h5>
-                    <a href="tel:+919411380885" class="d-inline-block mb-2 text-decoration-none text-dark">
-                        <i class="bi bi-telephone-fill"></i> +919411380885
+                    <a href="tel:+<?php echo $contact_r['pn1'] ?>"
+                        class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['pn1'] ?>
                     </a>
                     <br>
-                    <a href="tel:+919897409105" class="d-inline-block text-decoration-none text-dark">
-                        <i class="bi bi-telephone-fill"></i> +919897409105
-                    </a>
+                    <?php
+                    if ($contact_r['pn2'] != '') {
+                        echo <<<data
+                                <a href="tel:+$contact_r[pn2]" class="d-inline-block text-decoration-none text-dark">
+                                    <i class="bi bi-telephone-fill"></i> +$contact_r[pn2]
+                                </a>
+                            data;
+                    }
+                    ?>
                     <h5 class="mt-4">Email</h5>
-                    <a href="mailto:hotelomshivshankar@gmail.com" class="d-inline-block text-decoration-none text-dark">
-                        <i class="bi bi-envelope-fill"></i>hotelomshivshankar@gmail.com</a>
+                    <a href="mailto:<?php echo $contact_r['email'] ?>"
+                        class="d-inline-block text-decoration-none text-dark">
+                        <i class="bi bi-envelope-fill"></i><?php echo $contact_r['email'] ?></a>
                     <h5 class="mt-4">Follow Us</h5>
-                    <a href="#" class="d-inline-block text-dark fs-5 me-2">
+                    <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark fs-5 me-2">
                         <i class="bi bi-facebook me-1"></i>
                     </a>
-                    <a href="#" class="d-inline-block  text-dark fs-5 me-2">
+                    <a href="<?php echo $contact_r['whats'] ?>" class="d-inline-block  text-dark fs-5 me-2">
                         <i class="bi bi-whatsapp"></i>
                     </a>
-                    <a href="#" class="d-inline-block text-dark fs-5">
-                        <i class="bi bi-instagram"></i>
-                    </a>
+                    <?php
+                    if ($contact_r['insta'] != '') {
+                        echo <<<data
+                            <a href="$contact_r[insta]" class="d-inline-block text-dark fs-5">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        data;
+                    }
+                    ?>
+
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 px-4">
